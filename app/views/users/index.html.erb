@@ -1,16 +1,12 @@
-<div class="container">
-  <div class="row">
-    <h3>Users</h3>
-    <div class="column">
-      <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<h3>Welcome to Panel Moderation 
+<% if user_signed_in? %>
+    <%=current_user.email%> <%=current_user.role%></h3>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  , please login</h3>
+  <li>
+  <%= link_to('Login', users_path)  %>  
+  </li>
+<% end %>
