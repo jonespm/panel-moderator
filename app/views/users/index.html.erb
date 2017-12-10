@@ -1,12 +1,7 @@
-<h3>Welcome to Panel Moderation 
 <% if user_signed_in? %>
-    <%=current_user.email%> <%=current_user.role%></h3>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
+    <h3>Welcome to Panel Moderation <%=current_user.email%> <%=current_user.role%></h3>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
 <% else %>
-  , please login</h3>
-  <li>
-  <%= link_to('Login', users_path)  %>  
-  </li>
+    <h3>Welcome to Panel Moderation, please login</h3>
+    <%= link_to('Login', users_path)  %>  
 <% end %>
